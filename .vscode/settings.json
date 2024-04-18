@@ -1,0 +1,64 @@
+{
+  "editor.rulers": [80],
+  "cSpell.words": [
+    "contentsfinish",
+    "contentsline",
+    "jouder",
+    "kaiti",
+    "lshort",
+    "numberline",
+    "subsubsection",
+    "texdoc",
+    "textit"
+  ],
+  "files.associations": {
+    "LICENSE": "plaintext",
+    "latexmkrc": "perl",
+    ".latexmkrc": "perl",
+    "*.toc": "latex"
+  },
+  "editor.tabSize": 2,
+  "latex-workshop.latex.tools": [
+    {
+      "name": "xelatexmk",
+      "command": "latexmk",
+      "args": [
+        "-synctex=1",
+        "-interaction=nonstopmode",
+        "-file-line-error",
+        "-xelatex",
+        "--output-directory=%OUTDIR%",
+        "%DOC%"
+      ],
+      "env": {}
+    },
+    {
+      "name": "latexmk_rconly",
+      "command": "latexmk",
+      "args": [],
+      "env": {}
+    }
+  ],
+  "latex-workshop.latex.recipes": [
+    {
+      "name": "latexmk (xelatex)",
+      "tools": ["xelatexmk"]
+    },
+    {
+      "name": "latexmk (latexmkrc)",
+      "tools": ["latexmk_rconly"]
+    }
+  ],
+  "latex-workshop.latex.recipe.default": "latexmk (xelatex)",
+  "latex-workshop.latex.autoBuild.run": "onSave",
+  "latex-workshop.latex.build.forceRecipeUsage": false, // Magic comments need you to set this to false. The default true disables magic comments.
+  "latex-workshop.latex.rootFile.indicator": "\\begin{document}",
+  "latex-workshop.latex.search.rootFiles.include": ["**/*.tex"],
+  "latex-workshop.latex.outDir": "%DIR%/build",
+  // macOS Skim.app
+  "latex-workshop.view.pdf.viewer": "external",
+  "latex-workshop.view.pdf.external.viewer.command": "/Applications/Skim.app/Contents/SharedSupport/displayline",
+  "latex-workshop.view.pdf.external.viewer.args": ["0", "%PDF%"],
+  "latex-workshop.view.pdf.external.synctex.command": "/Applications/Skim.app/Contents/SharedSupport/displayline",
+  "latex-workshop.view.pdf.external.synctex.args": ["-r", "-b", "%LINE%", "%PDF%", "%TEX%"]
+}
