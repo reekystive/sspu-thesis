@@ -1,10 +1,9 @@
 % !TeX root = main.tex
 
-\documentclass[a4paper]{article}
+\documentclass[a4paper,fontset=none]{ctexart}
 
 % 中文支持与字体选择
 \usepackage[no-math]{fontspec}
-\usepackage[fontset=none]{ctex}
 
 % 数学支持
 \usepackage[tbtags]{amsmath}
@@ -94,20 +93,55 @@
 \geometry{a4paper, left = 3.17cm, right = 3.17cm, top = 2.54cm, bottom = 2.54cm}
 \setlength{\headheight}{1.13cm}
 \setlength{\headsep}{0.3cm}
-\fancyhead[C]{\includegraphics[scale = 0.06]{../assets/sspu_logo_title.eps}}
+\fancyhead[C]{\includegraphics[scale = 0.055]{../assets/sspu_logo_title.eps}}
 \fancyfoot[C]{}
 \fancyhead[LR]{}
 \fancyfoot[LR]{}
 \pagestyle{fancy}
 
 % 标题设置
-\titleformat{\section}[block]{\centering\zihao{3}\sffamily}{\thesection\quad}{0em}{}[]
-\titleformat{\subsection}[block]{\zihao{4}\sffamily}{\thesubsection\quad}{0em}{}[]
-\titleformat{\subsubsection}[block]{\zihao{-4}\sffamily}{\thesubsubsection\quad}{0em}{}[]
+\ctexset{
+  section = {
+    format = \centering\zihao{3}\sffamily,
+    aftername = \hspace{0pt},
+    afterindent = false,
+    number = \chinese{section},
+    name = {,、}
+   },
+  subsection = {
+      format = \zihao{4}\sffamily,
+      aftername = \hspace{0pt},
+      afterindent = false,
+      number = \chinese{subsection},
+      name = {（,）}
+    },
+  subsubsection = {
+      format = \zihao{-4}\sffamily,
+      aftername = \hspace{.5em},
+      afterindent = false,
+      number = \arabic{subsubsection},
+      name = {,.},
+    },
+  contentsname = {\zihao{-2}\sffamily 目录}
+}
+% 目录设置
+\titlecontents{section}[0bp]{\zihao{4}}{
+  \thecontentslabel\hspace{.5em}
+}{}{
+  \zihao{-4}\titlerule*[0.5pc]{.}\contentspage
+}
 
-\titlecontents{section}[0bp]{\zihao{4}}{\thecontentslabel\quad}{}{\titlerule*[0.5pc]{.}\contentspage}
-\titlecontents{subsection}[2\ccwd]{\zihao{-4}}{\thecontentslabel\quad}{}{\titlerule*[0.5pc]{.}\contentspage}
-\titlecontents{subsubsection}[4\ccwd]{\kaishu\zihao{-4}}{\thecontentslabel\quad}{}{\titlerule*[0.5pc]{.}\contentspage}
+\titlecontents{subsection}[2\ccwd]{\zihao{-4}}{
+  \thecontentslabel\hspace{.5em}
+}{}{
+  \zihao{-4}\titlerule*[0.5pc]{.}\contentspage
+}
+
+\titlecontents{subsubsection}[4\ccwd]{\kaishu\zihao{-4}}{
+  \thecontentslabel\hspace{.5em}
+}{}{
+  \zihao{-4}\titlerule*[0.5pc]{.}\contentspage
+}
 
 \captionsetup{font = sf}
 
